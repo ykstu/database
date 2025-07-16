@@ -7,20 +7,19 @@
 <link rel="stylesheet" href="https://www.res.ren3.pandadastudio.com/_nuxt/img/wl_img0.c8e9c4f.png"/>
 <style>
 :root{
-  --bg:#0d0d0f;
-  --bg-glass:rgba(255,255,255,.08);
-  --text:#f2f2f2;
-  --accent:#00d4aa;
+  --bg:#09090b;
+  --bg-glass:rgba(20,20,24,.82);
+  --text:#f8f8ff;
+  --accent:#00e6b2;
   --radius:18px;
-  --blur:10px;
+  --blur:14px;
   --font:system-ui,-apple-system,"Segoe UI",PingFang SC,Helvetica,Arial;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:var(--font);color:var(--text);user-select: none;}
-body{height:100vh;display:flex;flex-direction:column;background:#0d0d0f url(https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200714/1d9d6238428b8a7813c083374cb9721e.jpg) center/cover fixed}
+body{height:100vh;display:flex;flex-direction:column;background:#09090b url(https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200714/1d9d6238428b8a7813c083374cb9721e.jpg) center/cover fixed}
 img{max-width:100%;display:block;border-radius:var(--radius);-webkit-user-drag: none;}
 
-/* —— 主内容区 —— */
 #content{flex:1;position:relative;overflow:hidden}
 .tab-panel{
   position:absolute;
@@ -32,50 +31,47 @@ img{max-width:100%;display:block;border-radius:var(--radius);-webkit-user-drag: 
   opacity:0;
   transition:opacity .35s ease, transform .35s ease;
   pointer-events:none;
-  transform:translateY(20px);             /* NEW: 增加上浮动画 */
+  transform:translateY(20px);
 }
 .tab-panel.active{opacity:1;pointer-events:auto;transform:translateY(0)}
 
-/* —— 毛玻璃卡片 —— */
 .glass-card{
   width:100%;
   max-width:340px;
-  max-height:calc(100vh - 100px);        /* NEW: 限制高度 */
-  overflow-y:auto;                       /* NEW: 纵向滚动 */
+  max-height:calc(100vh - 100px);
+  overflow-y:auto;
   padding:28px 24px 32px;
   border-radius:var(--radius);
   background:var(--bg-glass);
-  backdrop-filter:blur(var(--blur));
-  -webkit-backdrop-filter:blur(var(--blur));
-  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(var(--blur)) saturate(1.2) brightness(0.85);
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(1.2) brightness(0.85);
+  border:1.5px solid #9999b1b6;
   text-align:center;
-  box-shadow:0 8px 32px rgba(0,0,0,.35);
-  scrollbar-width:thin;                  /* NEW: 美化滚动条（Firefox） */
-  scrollbar-color:var(--accent) transparent;
+  box-shadow:0 8px 32px rgba(0,0,0,.55);
+  scrollbar-width:thin;
+  scrollbar-color:var(--accent) #18181b;
 }
-.glass-card::-webkit-scrollbar{width:4px}
+.glass-card::-webkit-scrollbar{width:5px;background:#18181b}
 .glass-card::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
 
-h1{font-size:24px;margin-bottom:8px}
-h2{font-size:20px;margin-bottom:16px}
-.subtitle{font-size:15px;opacity:.7;margin-bottom:20px}
+h1{font-size:24px;margin-bottom:8px;text-shadow:0 2px 8px #000a;}
+h2{font-size:20px;margin-bottom:16px;text-shadow:0 1px 6px #0008;}
+.subtitle{font-size:15px;opacity:.8;margin-bottom:20px}
 .logo{width:100px;margin:0 auto 8px}
 .icon{width:60px;margin:0 auto 12px}
 .mini{width:20px;height:20px;display:inline-block;margin-right:4px;vertical-align:middle}
 
-/* —— 列表与表格 —— */
 ol,ul{padding-left:1.3em;text-align:left;line-height:1.6;font-size:14px}
-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
-th,td{padding:6px 4px;border-bottom:1px solid rgba(255,255,255,.15)}
-th{font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px;background:rgba(0,0,0,.10);border-radius:8px;overflow:hidden}
+th,td{padding:6px 4px;border-bottom:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.08)}
+th{font-weight:600;color:var(--accent)}
 
-/* —— 底部 Tab —— */
 #tabbar{
   display:flex;
-  background:rgba(255,255,255,.05);
-  backdrop-filter:blur(var(--blur));
-  -webkit-backdrop-filter:blur(var(--blur));
-  border-top:1px solid rgba(255,255,255,.12);
+  background:rgba(10,10,16,.82);
+  backdrop-filter:blur(var(--blur)) saturate(1.2) brightness(0.85);
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(1.2) brightness(0.85);
+  border-top:1.5px solid rgba(0,0,0,.32);
 }
 #tabbar button{
   flex:1;
@@ -89,7 +85,7 @@ th{font-weight:600}
   overflow:hidden;
 }
 #tabbar button.active{color:var(--accent);font-weight:600}
-#tabbar button::after{                    /* NEW: 指示条动画 */
+#tabbar button::after{
   content:'';
   position:absolute;
   left:50%;bottom:0;
@@ -103,21 +99,18 @@ th{font-weight:600}
 </head>
 <body>
 
-<!-- 背景音乐（随机） -->
 <audio id="bgm" loop preload="auto"></audio>
 
-<!-- ===== 主内容区 ===== -->
 <main id="content">
-  <!-- 首页 -->
   <section id="home" class="tab-panel active">
     <div class="glass-card">
       <h1>✿</h1>
       <p class="subtitle">三服·四川成都</p>
+      <p class="subtitle">Ver 1.0</p>
       <img class="logo" src="https://www.res.ren3.pandadastudio.com/_nuxt/img/wl_img0.c8e9c4f.png" alt="logo"/>
     </div>
   </section>
 
-  <!-- 家族介绍 -->
   <section id="intro" class="tab-panel">
     <div class="glass-card">
       <h2>家族介绍</h2>
@@ -128,7 +121,6 @@ th{font-weight:600}
     </div>
   </section>
 
-  <!-- 家族规定 -->
   <section id="rules" class="tab-panel">
     <div class="glass-card">
       <h2>家族规定</h2>
@@ -172,7 +164,6 @@ th{font-weight:600}
     </div>
   </section>
 
-  <!-- QQ群规定 -->
   <section id="qq" class="tab-panel">
     <div class="glass-card">
       <h2>QQ群规定</h2>
@@ -181,7 +172,7 @@ th{font-weight:600}
         <li>进群请按要求（编辑群昵称页面有备注）修改昵称。</li>
         <li>本群只接受家族中人员加入，不强制要求家族成员加入，若被踢出家族也会被踢出群。</li>
         <li>有问题请@管理员。</li>
-        <li>族长、副首族长和部分长老担任管理员。</li>
+        <li>族长、副族长和部分长老担任管理员。</li>
         <li>本群主要谈论忍者必须死3相关内容，但也可以谈论其他内容。</li>
       </ol>
     </div>
