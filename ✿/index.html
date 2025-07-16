@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-cn">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+<title>✿</title>
+<link rel="stylesheet" href="https://www.res.ren3.pandadastudio.com/_nuxt/img/wl_img0.c8e9c4f.png"/>
+<style>
+:root{
+  --bg:#0d0d0f;
+  --bg-glass:rgba(255,255,255,.08);
+  --text:#f2f2f2;
+  --accent:#00d4aa;
+  --radius:18px;
+  --blur:10px;
+  --font:system-ui,-apple-system,"Segoe UI",PingFang SC,Helvetica,Arial;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:var(--font);color:var(--text);user-select: none;}
+body{height:100vh;display:flex;flex-direction:column;background:#0d0d0f url(https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200714/1d9d6238428b8a7813c083374cb9721e.jpg) center/cover fixed}
+img{max-width:100%;display:block;border-radius:var(--radius);-webkit-user-drag: none;}
+
+/* —— 主内容区 —— */
+#content{flex:1;position:relative;overflow:hidden}
+.tab-panel{
+  position:absolute;
+  inset:0;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:opacity .35s ease, transform .35s ease;
+  pointer-events:none;
+  transform:translateY(20px);             /* NEW: 增加上浮动画 */
+}
+.tab-panel.active{opacity:1;pointer-events:auto;transform:translateY(0)}
+
+/* —— 毛玻璃卡片 —— */
+.glass-card{
+  width:100%;
+  max-width:340px;
+  max-height:calc(100vh - 100px);        /* NEW: 限制高度 */
+  overflow-y:auto;                       /* NEW: 纵向滚动 */
+  padding:28px 24px 32px;
+  border-radius:var(--radius);
+  background:var(--bg-glass);
+  backdrop-filter:blur(var(--blur));
+  -webkit-backdrop-filter:blur(var(--blur));
+  border:1px solid rgba(255,255,255,.12);
+  text-align:center;
+  box-shadow:0 8px 32px rgba(0,0,0,.35);
+  scrollbar-width:thin;                  /* NEW: 美化滚动条（Firefox） */
+  scrollbar-color:var(--accent) transparent;
+}
+.glass-card::-webkit-scrollbar{width:4px}
+.glass-card::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
+h1{font-size:24px;margin-bottom:8px}
+h2{font-size:20px;margin-bottom:16px}
+.subtitle{font-size:15px;opacity:.7;margin-bottom:20px}
+.logo{width:100px;margin:0 auto 8px}
+.icon{width:60px;margin:0 auto 12px}
+.mini{width:20px;height:20px;display:inline-block;margin-right:4px;vertical-align:middle}
+
+/* —— 列表与表格 —— */
+ol,ul{padding-left:1.3em;text-align:left;line-height:1.6;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+th,td{padding:6px 4px;border-bottom:1px solid rgba(255,255,255,.15)}
+th{font-weight:600}
+
+/* —— 底部 Tab —— */
+#tabbar{
+  display:flex;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(var(--blur));
+  -webkit-backdrop-filter:blur(var(--blur));
+  border-top:1px solid rgba(255,255,255,.12);
+}
+#tabbar button{
+  flex:1;
+  font-size:13px;
+  padding:12px 0;
+  background:transparent;
+  border:none;
+  color:rgba(255,255,255,.7);
+  transition:all .3s ease;
+  position:relative;
+  overflow:hidden;
+}
+#tabbar button.active{color:var(--accent);font-weight:600}
+#tabbar button::after{                    /* NEW: 指示条动画 */
+  content:'';
+  position:absolute;
+  left:50%;bottom:0;
+  width:0;height:2px;
+  background:var(--accent);
+  transition:all .3s ease;
+  transform:translateX(-50%);
+}
+#tabbar button.active::after{width:60%}
+</style>
+</head>
+<body>
+
+<!-- 背景音乐（随机） -->
+<audio id="bgm" loop preload="auto"></audio>
+
+<!-- ===== 主内容区 ===== -->
+<main id="content">
+  <!-- 首页 -->
+  <section id="home" class="tab-panel active">
+    <div class="glass-card">
+      <h1>✿</h1>
+      <p class="subtitle">三服·四川成都</p>
+      <img class="logo" src="https://www.res.ren3.pandadastudio.com/_nuxt/img/wl_img0.c8e9c4f.png" alt="logo"/>
+    </div>
+  </section>
+
+  <!-- 家族介绍 -->
+  <section id="intro" class="tab-panel">
+    <div class="glass-card">
+      <h2>家族介绍</h2>
+      <img class="icon" src="https://www.res.ren3.pandadastudio.com/_nuxt/img/wl_img0.c8e9c4f.png" alt="icon"/>
+      <p>三服·海之国</p>
+      <p>四川·成都</p>
+      <p>族长：Yang</p>
+    </div>
+  </section>
+
+  <!-- 家族规定 -->
+  <section id="rules" class="tab-panel">
+    <div class="glass-card">
+      <h2>家族规定</h2>
+      <ol>
+        <li>成员加入QQ群。（非必须）</li>
+        <li>禁止发送广告、黄赌毒等违法信息以及影响他人内容。</li>
+        <li>积极参与深渊和家族战。（非必须）</li>
+        <li>违反规定的成员会被踢出。</li>
+        <li>长期离线成员会在家族人数较多时被踢出。</li>
+        <li>职务分配（参考）：</li>
+      </ol>
+      <table>
+        <thead>
+          <tr>
+                <th>职务</th>
+                <th>要求</th>
+                <th>备注</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+                <td>族长</td>
+                <td>-</td>
+                <td></td>
+        </tr>
+          <tr>
+            <td>副族长</td>
+            <td>影忍<br>贡献≥1000<br>参与深渊、家族战<br>10天内在线</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>长老</td>
+            <td>狂忍<br>贡献≥500<br>参与深渊、家族战<br>15天内在线</td><td></td>
+          </tr>
+          <tr>
+            <td>成员</td>
+            <td>不入流<br>30天内在线</td><td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- QQ群规定 -->
+  <section id="qq" class="tab-panel">
+    <div class="glass-card">
+      <h2>QQ群规定</h2>
+      <ol>
+        <li>禁止广告、黄赌毒等违法信息。禁止刷屏、斗图等影响聊天的行为。</li>
+        <li>进群请按要求（编辑群昵称页面有备注）修改昵称。</li>
+        <li>本群只接受家族中人员加入，不强制要求家族成员加入，若被踢出家族也会被踢出群。</li>
+        <li>有问题请@管理员。</li>
+        <li>族长、副首族长和部分长老担任管理员。</li>
+        <li>本群主要谈论忍者必须死3相关内容，但也可以谈论其他内容。</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<nav id="tabbar">
+  <button data-tab="home" class="active">首页</button>
+  <button data-tab="intro">介绍</button>
+  <button data-tab="rules">规定</button>
+  <button data-tab="qq">QQ群</button>
+</nav>
+
+<script>
+const bgImgs = [
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200714/1d9d6238428b8a7813c083374cb9721e.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20250506/d370e0c02429d1bbfac4cfea77f93ae9.png',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20240926/fc022c59a8b9c3a67ab4a4de2ec8dc79.png',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20220929/de84552e0c08382d079243982bc2ee8d.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200723/40388c27dff5a9308b9c02bd95b52bae.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200714/580e7eb69be31de5badbcabc0c47980d.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200709/1d131e011b1e43b027754d97b68ad9a2.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200709/51ffd4528c4f64df386e0df8cc7d1c7a.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200709/0f20e76c5049170f5c1b5718d8ad8256.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200714/df80c9a169cdf48e98568a7036bddb3c.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20201110/027ca673b8daa21b524b59f9e6eeeb77.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20220411/2c383a2fe7fe3d9697e5d3a90b15c138.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20220328/457a6da6a11a2750e11e3c14f2d54074.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20210409/028aa903a7bde7dfa13f8d7329c11adb.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20231206/1a7626b514915beef8957a93eae4afb9.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20250526/032013479e72b9ac1edb9611e99af119.png',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20230925/39a593279c53d95c0514d146ed238ac7.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20230412/0e76cd130cd4bf425a3acbe881f2b008.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20200714/a9c4760ec03929b25ecfb59a931b73b1.jpg',
+  'https://www.res.ren3.pandadastudio.com/upload/rzbxs/20230515/fdc4849ade3075eb0ffc27668a1193d7.jpg'
+];
+const bgms = [
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/19439244bf4067bb18f95d8ca761b15d.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/543cc79bb9611e6c69a63a65ca1e9b28.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/4b1e1cd7ca191f5043792c9cd5c53c53.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/a63f518a5b78dd9a09188c7f0bd348da.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/90a66df4a6386afbdcda6257bca0481d.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/451cf53a0eaa313edb17c81c30574cde.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/e2247c5721565bccf36983ec657a35a3.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/a94bb55dadae09ecb86115c9a0a1f516.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/7bbceb5780d8053329309d10d625effb.wav',
+  'https://www.ures.ren3.pandadastudio.com/default/20210930/100a02bc1306d0e8f48f3a4e9c948963.wav'
+];
+
+let lastBgIndex = -1;
+let lastBgmIndex = -1;
+
+function getRandomIndex(arr, lastIdx) {
+  let idx;
+  do {
+    idx = Math.floor(Math.random() * arr.length);
+  } while (arr.length > 1 && idx === lastIdx);
+  return idx;
+}
+
+function setRandomBg() {
+  const idx = getRandomIndex(bgImgs, lastBgIndex);
+  document.body.style.backgroundImage = `url(${bgImgs[idx]})`;
+  lastBgIndex = idx;
+}
+
+function setRandomBgm() {
+  const idx = getRandomIndex(bgms, lastBgmIndex);
+  bgm.src = bgms[idx];
+  lastBgmIndex = idx;
+}
+
+setRandomBg();
+setRandomBgm();
+
+function tryPlay(){
+  bgm.muted = true;
+  bgm.play()
+    .then(()=>{ bgm.muted=false; })
+}
+['click','keydown','touchstart'].forEach(e=>document.body.addEventListener(e,tryPlay,{once:true}));
+
+bgm.addEventListener('ended', () => {
+  setRandomBgm();
+  tryPlay();
+});
+
+setInterval(setRandomBg, 30000);
+
+document.body.addEventListener('touchmove', function(e) {
+e.preventDefault();
+}, { passive: false });
+
+document.getElementById('tabbar').addEventListener('click', e=>{
+  if(!e.target.dataset.tab) return;
+  document.querySelectorAll('#tabbar button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(e.target.dataset.tab).classList.add('active');
+});
+</script>
+</body>
+</html>
